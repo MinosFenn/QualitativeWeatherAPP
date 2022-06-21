@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const api = {
-  base: "https://api.openweathermap.org/data/2.5/",
+  base: "https://api.openweathermap.org/data/3.0/",
   // translate city into lat long with google maps api
   // new url: https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
 };
@@ -14,7 +14,7 @@ function App() {
   const [snow, setSnow] = useState("");
   const search = (evt) => {
     if (evt.key === "Enter") {
-      fetch(`${api.base}weather?q=${query}&units=metric&APPID=${process.env.REACT_APP_WEATHER_API_KEY}`)
+      fetch(`${api.base}/onecall?q=${query}&units=metric&Appid=${process.env.REACT_APP_WEATHER_API_KEY}`)
         .then((res) => res.json())
         .then((result) => {
           setWeather(result);
@@ -24,8 +24,6 @@ function App() {
           setSnow(result.snow);
           console.log(result);
         });
-        console.log(process.env.REACT_APP_WEATHER_API_KEY)
-
     }
   };
 
