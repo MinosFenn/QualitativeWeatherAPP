@@ -24,6 +24,8 @@ function App() {
           setSnow(result.snow);
           console.log(result);
         });
+        console.log(process.env.REACT_APP_WEATHER_API_KEY)
+
     }
   };
 
