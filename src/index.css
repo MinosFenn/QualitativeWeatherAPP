@@ -21,13 +21,34 @@ code {
   background-image: url('./images/sunny.png');
   background-size:cover;
   background-position: bottom;
-  transition: 0.4 ease-out;
+  transition: 1s ease-out;
 }
 
-.app.rainy {
-  background-image: url('./images/rainy.png');
+/* later on add windy, seasonal diversification etc */
+/* Change background color based on weather */
+.Clear {
+  background-color: rgb(190, 227, 253) ;
+  transition: 1s ease-out;
 
 }
+.Cloudy {
+  background-color: aliceblue ;
+  transition: 1s ease-out;
+
+}
+
+.Rain {
+  background-color: rgb(109, 124, 152);
+  transition: 1s ease-out;
+
+}
+
+.Snow {
+background-color: antiquewhite;
+transition: 1 ease-out;
+
+}
+
 main {
   min-height: 100vh;
   /* background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.75)); */
@@ -57,7 +78,7 @@ main {
   color: #ffffff;
   font-size: 20px;
 
-  transition: 0.4s ease-out;
+  transition: 1s ease-out;
 }
 
 .search-box .search-bar:focus {
