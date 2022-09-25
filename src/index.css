@@ -27,7 +27,7 @@ code {
 /* later on add windy, seasonal diversification etc */
 /* Change background color based on weather */
 .Clear {
-  background-color: rgb(190, 227, 253) ;
+  background-color: rgb(217, 235, 247) ;
   transition: 1s ease-out;
 
 }
@@ -38,13 +38,13 @@ code {
 }
 
 .Rain {
-  background-color: rgb(109, 124, 152);
+  background-color: rgb(112, 144, 201);
   transition: 1s ease-out;
 
 }
 
 .Snow {
-background-color: antiquewhite;
+background-color: rgb(221, 221, 221);
 transition: 1 ease-out;
 
 }
@@ -107,8 +107,8 @@ main {
 }
 
 .weather-box .temp {
-  position: relative;
-  display: inline-block;
+  /* position: relative;
+  display: inline-block; */
   margin-top: 200px;
   margin: 30px auto 0;
   background-color: rgba(255, 255, 255, 0.2);
