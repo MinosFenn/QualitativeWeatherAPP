@@ -15,7 +15,7 @@ import sleevelessJacket from './images/clothes/doudoune-sans-manche.png';
 import shirt from './images/clothes/doudoune-sans-manche.png';
 import sunrise from './images/sunrise-weather-symbol_icon-icons.com_64261.png';
 import sunset from './images/sunset-fill-interface-symbol_icon-icons.com_64262.png';
-
+import ProgressBar from './components/weatherVar/progressBar';
 const api = {
   base: 'https://api.openweathermap.org/data/2.5/',
   // translate city into lat long with google maps api
@@ -194,6 +194,7 @@ console.log(moment)
               <div className="temp">{Math.round(weather.main.temp)}°C</div>
               <div className="location">
                 {' '}
+                <ProgressBar/>
                 <img src={sunrise} />
                 <SecondsToHms value={weather.sys.sunrise}/>
                 {/* {SecondsToHms( Date(`${weather.sys.sunrise}`))} */}
