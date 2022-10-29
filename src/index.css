@@ -124,7 +124,8 @@ main {
 }
 
 .weather-box .top {
-  overflow: hidden;
+  height: 30vh;
+  /* overflow: hidden; */
   position: relative;
   display: inline-block;
   margin-top: 0px;
