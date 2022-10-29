@@ -1,4 +1,9 @@
 import React, { useState } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { useLoader } from '@react-three/fiber';
+import { Environment, OrbitControls } from '@react-three/drei';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { Suspense } from 'react';
 import technicJacket from './images/clothes/doudoune.png';
 import softPant from './images/clothes/pantalon-leger.png';
 import technicPant from './images/clothes/pantalong-technique.png';
@@ -15,6 +20,7 @@ import sleevelessJacket from './images/clothes/doudoune-sans-manche.png';
 import shirt from './images/clothes/doudoune-sans-manche.png';
 import sunrise from './images/sunrise-weather-symbol_icon-icons.com_64261.png';
 import sunset from './images/sunset-fill-interface-symbol_icon-icons.com_64262.png';
+import Model from './Model.js';
 
 const api = {
   base: 'https://api.openweathermap.org/data/2.5/',
@@ -79,25 +85,15 @@ function App() {
     return `${day} ${date} ${month} ${year}`;
   };
 
-
   const SecondsToHms = (props) => {
     let date = Date(`${props.value}`);
     const moment = props.value * 1000;
     const dateObject = new Date(moment);
-    const humanDateFormat = dateObject.toLocaleString() //2019-12-9 10:30:15
-    const hour = dateObject.toLocaleString("fr-FR", {hour: "numeric"}) // 10 AM
-const minute= dateObject.toLocaleString("fr-FR", {minute: "numeric"}) // 30
-return `${hour} ${minute}`
-
-console.log(moment)
-    console.log(props.value)
-
-   
-    let hours = 1;
-    let minutes = 2;
-    let seconds = 3;
-    return `${hours} ${minutes} ${seconds}`;
-}
+    const humanDateFormat = dateObject.toLocaleString(); //2019-12-9 10:30:15
+    const hour = dateObject.toLocaleString('fr-FR', { hour: 'numeric' }); // 10 AM
+    const minute = dateObject.toLocaleString('fr-FR', { minute: 'numeric' }); // 30
+    return `${hour} ${minute}`;
+  };
   // create feature holiday: choose a destination, bag capacity, time period > recommendation system
   // switch replace by object map at some point
   function SwitchCaseTempTop(props) {
@@ -158,6 +154,7 @@ console.log(moment)
         return '404';
     }
   }
+
   return (
     <div
       className={
@@ -181,12 +178,21 @@ console.log(moment)
               <div className="location">
                 {weather.name}, {weather.sys.country}
               </div>
-             
 
               <div className="date">{dateBuilder(new Date())}</div>
             </div>
             <div className="weather-box">
               <div className="top">
+                <Canvas
+                  style={{ height: `calc(150% - 100px)` }}
+                  camera={{ fov: 1.5,near: 0.3, position: [0, 40, 90] }}
+                >
+                  <Suspense fallback={null}>
+                    <Model />
+                    <OrbitControls />
+                    <Environment preset="sunset" />
+                  </Suspense>
+                </Canvas>
                 <SwitchCaseTempTop value={indicator.temp} />
                 {/* fix value to test switch case  */}
                 {/* <SwitchCaseTempTop value="0" /> */}
@@ -195,11 +201,10 @@ console.log(moment)
               <div className="location">
                 {' '}
                 <img src={sunrise} />
-                <SecondsToHms value={weather.sys.sunrise}/>
+                <SecondsToHms value={weather.sys.sunrise} />
                 {/* {SecondsToHms( Date(`${weather.sys.sunrise}`))} */}
-
                 <img src={sunset} />
-                <SecondsToHms value={weather.sys.sunset}/>
+                <SecondsToHms value={weather.sys.sunset} />
               </div>
               <div className="weather">{weather.weather[0].main}</div>
             </div>
