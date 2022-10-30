@@ -173,19 +173,10 @@ function App() {
           ></input>
         </div>
         {typeof weather.main !== 'undefined' ? (
-          <div>
-            <div className="location-box">
-              <div className="location">
-                {weather.name}, {weather.sys.country}
-              </div>
-
-              <div className="date">{dateBuilder(new Date())}</div>
-            </div>
             <div className="weather-box">
-              <div className="top">
                 <Canvas
-                  style={{ height: `calc(150% - 100px)` }}
-                  camera={{ fov: 1.5,near: 0.3, position: [0, 40, 90] }}
+                style={{ height: `calc(100% - 100px)`}}
+                  camera={{ fov: 1.5 ,near: 0.1, position: [0, 40, 90] }}
                 >
                   <Suspense fallback={null}>
                     <Model />
@@ -196,7 +187,6 @@ function App() {
                 <SwitchCaseTempTop value={indicator.temp} />
                 {/* fix value to test switch case  */}
                 {/* <SwitchCaseTempTop value="0" /> */}
-              </div>
               <div className="temp">{Math.round(weather.main.temp)}°C</div>
               <div className="location">
                 {' '}
@@ -208,7 +198,6 @@ function App() {
               </div>
               <div className="weather">{weather.weather[0].main}</div>
             </div>
-          </div>
         ) : (
           <div>nothing found</div>
         )}

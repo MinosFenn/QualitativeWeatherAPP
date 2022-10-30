@@ -4,7 +4,6 @@
   box-sizing: border-box;
 }
 body {
-
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -19,7 +18,7 @@ code {
 
 .app {
   background-image: url('./images/sunny.png');
-  background-size:cover;
+  background-size: cover;
   background-position: bottom;
   transition: 1s ease-out;
 }
@@ -27,57 +26,59 @@ code {
 /* later on add windy, seasonal diversification etc */
 /* Change background color based on weather */
 .Clear {
-  background-color: rgb(217, 235, 247) ;
+  background-color: rgb(217, 235, 247);
   transition: 1s ease-out;
-
 }
 .Cloudy {
-  background-color: aliceblue ;
+  background-color: aliceblue;
   transition: 1s ease-out;
-
 }
 
 .Rain {
   background-color: rgb(112, 144, 201);
   transition: 1s ease-out;
-
 }
 
 .Snow {
-background-color: rgb(221, 221, 221);
-transition: 1 ease-out;
-
+  background-color: rgb(221, 221, 221);
+  transition: 1 ease-out;
 }
 
 main {
-  min-height: 100vh;
+    /* Background */
+position: absolute;
+justify-content: center;
+
+margin: 0 auto;
+width: 100%;
+height: 100%;
+min-width: 393px;
+min-height: 852px;
+left: 0px;
+top: 0px;
+
+background: linear-gradient(359.28deg, #FEFEFE -6.03%, #EBEBEB 96.4%);
+backdrop-filter: blur(43.5px);
+/* Note: backdrop-filter has minimal browser support */
   /* background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.75)); */
-  padding: 25px;
 }
 
 .search-box {
   width: 100%;
-  margin: 0 0 75px;
 }
 
 .search-box .search-bar {
   display: block;
   width: 100%;
   padding: 15px;
-
   appearance: none;
   background: none;
   border: none;
   outline: none;
-
   background-color: rgba(255, 255, 255, 0.5);
-
-
   box-shadow: 0px 5px rgba(0, 0, 0, 0.2);
-  
   color: #ffffff;
   font-size: 20px;
-
   transition: 1s ease-out;
 }
 
@@ -103,47 +104,77 @@ main {
 .weather-box {
   text-align: center;
   /* margin-top: 250px; */
-
+  /* Main */
+  justify-content: center;
+  margin: 20px auto;
+  width: 90%;
+  height: 70%;
+  min-width: 351px;
+  min-height: 630.11px;
+  left: 20px;
+  top: 60px;
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    rgba(251, 251, 251, 0.505208) 49.48%,
+    rgba(255, 255, 255, 0.83) 100%
+  );
+  box-shadow: 0px 3px 42px rgba(0, 47, 213, 0.25),
+    inset 18px 6px 76px rgba(0, 56, 255, 0.25);
+  border-radius: 104px;
 }
 
 .weather-box .temp {
-  /* position: relative;
-  display: inline-block; */
-  margin-top: 200px;
-  margin: 30px auto 0;
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 16px;
+/* 14°C */
 
-  padding: 15px 25px;
 
-  color: rgb(0, 0, 0);
-  font-size: 116px;
-  font-weight: 900;
+position: absolute;
+left: 11.97%;
+right: 64.39%;
+top: 5.87%;
+bottom: 87.3%;
 
-  text-align: center;
+font-family: 'Bruno Ace SC';
+font-style: normal;
+font-weight: 400;
+font-size: 36px;
+line-height: 43px;
+
+background: linear-gradient(327deg, #AEB5F9 -16.95%, #FFFFFF 67.07%, rgba(0, 26, 255, 0) 111.03%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+text-fill-color: transparent;
+
 }
 
-.weather-box .top {
-  height: 30vh;
-  /* overflow: hidden; */
-  position: relative;
-  display: inline-block;
-  margin-top: 0px;
-  margin: 30px auto 0;
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 16px;
-
-  padding: 15px 25px;
-
-  color: rgb(0, 0, 0);
-  font-size: 56px;
-  font-weight: 400;
-
-  text-align: center;
+.top {
+  /* Rectangle 1 */
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
 }
 
 .weather-box .weather {
-  color: rgb(0, 0, 0);
-  font-size: 48px;
-  font-weight: 700;
+/* CLEAR */
+
+
+position: absolute;
+left: 54.99%;
+right: 7.41%;
+top: 5.55%;
+bottom: 88.73%;
+
+font-family: 'Bruno Ace SC';
+font-style: normal;
+font-weight: 400;
+font-size: 30px;
+line-height: 36px;
+
+background: linear-gradient(58.98deg, #DDE0FF 26.38%, #FFFFFF 72.26%, rgba(0, 26, 255, 0) 113.15%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+text-fill-color: transparent;
 }
